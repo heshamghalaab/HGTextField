@@ -31,8 +31,8 @@ class Validation{
         case .confirmPassword(let confirmPassword):
             return isConfirmPasswordValidate(withConfirmPassword: confirmPassword, andPassword: value)
         case .other:
-            guard let _ = value else {
-                return ValidationResponse(warning: "field is required", isValidate: false)
+            guard let value = value, !value.isEmpty else {
+                return ValidationResponse(warning: "Field is required", isValidate: false)
             }
             return ValidationResponse(warning: nil, isValidate: true)
         }
@@ -40,11 +40,11 @@ class Validation{
     
     private func isEmailValidate(withValue value: String?) -> ValidationResponse{
         guard let value = value, !value.isEmpty else {
-            return ValidationResponse(warning: "field is required", isValidate: false)
+            return ValidationResponse(warning: "Field is required", isValidate: false)
         }
         
         guard checkEmailConfirmation(emailAddress: value) else{
-            return ValidationResponse(warning: "enter a valid email", isValidate: false)
+            return ValidationResponse(warning: "Enter a valid email", isValidate: false)
         }
         
         return ValidationResponse(warning: nil, isValidate: true)
@@ -59,11 +59,11 @@ class Validation{
     
     private func isPasswordValidate(withValue value: String?) -> ValidationResponse{
         guard let value = value, !value.isEmpty else {
-            return ValidationResponse(warning: "field is required", isValidate: false)
+            return ValidationResponse(warning: "Field is required", isValidate: false)
         }
         
         guard checkPasswordConfirmation(password: value) else{
-            return ValidationResponse(warning: "password must be more than 8 characters", isValidate: false)
+            return ValidationResponse(warning: "Password must be more than 8 characters", isValidate: false)
         }
         
         return ValidationResponse(warning: nil, isValidate: true)
@@ -79,11 +79,11 @@ class Validation{
     private func isConfirmPasswordValidate(withConfirmPassword confirmPassword: String?, andPassword password: String?) -> ValidationResponse{
         guard let confirmPassword = confirmPassword, !confirmPassword.isEmpty ,
               let password = password, !password.isEmpty else {
-            return ValidationResponse(warning: "field is required", isValidate: false)
+            return ValidationResponse(warning: "Field is required", isValidate: false)
         }
         
         guard password == confirmPassword else{
-            return ValidationResponse(warning: "password are not matched", isValidate: false)
+            return ValidationResponse(warning: "Password are not matched", isValidate: false)
         }
         
         return ValidationResponse(warning: nil, isValidate: true)

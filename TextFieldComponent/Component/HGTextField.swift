@@ -1,5 +1,5 @@
 //
-//  TextField.swift
+//  HGTextField.swift
 //  TextFieldComponent
 //
 //  Created by hesham ghalaab on 5/15/19.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TextField: UIView {
+class HGTextField: UIView {
 
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var textField: UITextField!
@@ -21,21 +21,26 @@ class TextField: UIView {
     @IBOutlet weak var warningHeight: NSLayoutConstraint!
     
     weak var superView: UIView?
-    var fieldType = FieldType.other
+    private var isFirstTimeLayOutSuperView = true
+    private var isFirstTimeAnimatePlaceHolder = true
     
+    var fieldType = FieldType.other
     var hasWarning: Bool = false
     var warningText: String?{
         didSet{
             let width = warningLabel.frame.width
             guard let warningText = warningText else {
-                warningHeight.constant = 0
-                layOutSuperView()
                 hasWarning = false
+                warningHeight.constant = 0
+                separatorView.backgroundColor = separatorColor
+                layOutSuperView()
                 return
             }
+            
             hasWarning = true
             warningLabel.text = warningText
             warningHeight.constant = heightOfLabel(withConstrainedWidth: width, font: warningLabel.font, value: warningText)
+            separatorView.backgroundColor = warningTextColor
             layOutSuperView()
         }
     }
@@ -52,27 +57,13 @@ class TextField: UIView {
         }
     }
     
-    var placeHolderText: String = String(){
-        didSet{
-            placeHolderLabel.text = placeHolderText
-        }
+    private var placeHolderText: String = String(){
+        didSet{ placeHolderLabel.text = placeHolderText }
     }
-    
-    private var placeHolderPrimaryColor: UIColor?{
-        didSet{
-            guard let color = placeHolderPrimaryColor else {return}
-            guard text == nil else { return }
-            self.placeHolderLabel.textColor = color
-        }
-    }
-    
-    private var placeHolderSecondaryColor: UIColor?{
-        didSet{
-            guard let color = placeHolderSecondaryColor else {return}
-            guard text != nil else { return }
-            self.placeHolderLabel.textColor = color
-        }
-    }
+    private var placeHolderActiveColor: UIColor?
+    private var placeHolderInActiveColor: UIColor?
+    private var separatorColor = UIColor.lightGray
+    private var warningTextColor = UIColor.red
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -84,23 +75,31 @@ class TextField: UIView {
         commonInit()
     }
     
-    func setup(withSuperView superView: UIView?, separatorColor: UIColor = UIColor.lightGray ,text: String?, placeHolderText: String){
+    func setup(withSuperView superView: UIView?){
         self.superView = superView
-        self.separatorView.backgroundColor = separatorColor
-        self.placeHolderText = placeHolderText
-        self.text = text
     }
     
-    func setupWarningView(warningText: String?, warningFont: UIFont, warningTextColor: UIColor){
+    func setupTextField(text: String?, textFont: UIFont, textColor: UIColor){
+        self.text = text
+        self.textField.font = textFont
+        self.textField.textColor = textColor
+    }
+    
+    func setupWarningView(warningText: String?, warningFont: UIFont, warningTextColor: UIColor, separatorColor: UIColor = UIColor.lightGray){
         self.warningLabel.font = warningFont
         self.warningLabel.textColor = warningTextColor
+        self.warningTextColor = warningTextColor
+        self.separatorColor = separatorColor
         self.warningText = warningText
     }
     
-    func setupPlaceHolderView(withFont font: UIFont, primaryColor: UIColor, secondaryColor: UIColor){
+    /// make sure to call this before setupTextField method.
+    func setupPlaceHolderView(withPlaceHolderText text: String, Font font: UIFont, activeColor: UIColor, InActiveColor: UIColor){
+        
         self.placeHolderLabel.font = font
-        self.placeHolderPrimaryColor = primaryColor
-        self.placeHolderSecondaryColor = secondaryColor
+        self.placeHolderActiveColor = activeColor
+        self.placeHolderInActiveColor = InActiveColor
+        self.placeHolderText = text
     }
     
     private func commonInit(){
@@ -110,7 +109,7 @@ class TextField: UIView {
     }
     
     private func loadNib(){
-        Bundle.main.loadNibNamed("TextField", owner: self, options: nil)
+        Bundle.main.loadNibNamed("HGTextField", owner: self, options: nil)
         addSubview(mainView)
         mainView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -128,26 +127,45 @@ class TextField: UIView {
     func animatePlaceHolderIn(){
         topOfTextField.constant = placeHolderLabel.frame.height
         topOfPlaceHolderLabel.constant = 0
+        
+        guard !isFirstTimeAnimatePlaceHolder else {
+            self.handlePlaceHolderAnimation(with: self.placeHolderActiveColor)
+            self.isFirstTimeAnimatePlaceHolder = false
+            return
+        }
+        
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
-            if let color = self.placeHolderSecondaryColor{
-                self.placeHolderLabel.textColor = color
-            }
-            self.superView?.layoutIfNeeded()
+            self.handlePlaceHolderAnimation(with: self.placeHolderActiveColor)
         })
     }
     
     func animatePlaceHolderOut(){
         topOfTextField.constant = 0
         topOfPlaceHolderLabel.constant = (textField.frame.height / 2) - (placeHolderLabel.frame.height / 2)
+        
+        guard !isFirstTimeAnimatePlaceHolder else {
+            self.handlePlaceHolderAnimation(with: self.placeHolderInActiveColor)
+            self.isFirstTimeAnimatePlaceHolder = false
+            return
+        }
+        
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
-            if let color = self.placeHolderPrimaryColor{
-                self.placeHolderLabel.textColor = color
-            }
-            self.superView?.layoutIfNeeded()
+            self.handlePlaceHolderAnimation(with: self.placeHolderInActiveColor)
         })
     }
     
+    private func handlePlaceHolderAnimation(with color: UIColor?){
+        if let color = color{ self.placeHolderLabel.textColor = color }
+        self.superView?.layoutIfNeeded()
+    }
+    
     private func layOutSuperView(){
+        guard !isFirstTimeLayOutSuperView else {
+            self.superView?.layoutIfNeeded()
+            self.isFirstTimeLayOutSuperView = false
+            return
+        }
+        
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
             self.superView?.layoutIfNeeded()
         })
@@ -168,7 +186,7 @@ class TextField: UIView {
     
 }
 
-extension TextField: UITextFieldDelegate{
+extension HGTextField: UITextFieldDelegate{
     func textFieldDidBeginEditing(_ textField: UITextField) {
         print("textFieldDidBeginEditing")
         animatePlaceHolderIn()
@@ -176,6 +194,7 @@ extension TextField: UITextFieldDelegate{
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         print("textFieldDidEndEditing")
+        let _ = isValidate()
         guard let text = textField.text, !text.isEmpty else {
             animatePlaceHolderOut()
             return

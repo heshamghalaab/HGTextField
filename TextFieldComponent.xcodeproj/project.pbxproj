@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C9E7E43229C7229003A8E03 /* HGTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9E7E42229C7229003A8E03 /* HGTextField.swift */; };
 		9CA01C482299E769003FE141 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA01C472299E769003FE141 /* Validation.swift */; };
 		9CB2DC36228CB4AC00BEBD8F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB2DC35228CB4AC00BEBD8F /* AppDelegate.swift */; };
 		9CB2DC38228CB4AC00BEBD8F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB2DC37228CB4AC00BEBD8F /* ViewController.swift */; };
@@ -15,8 +16,7 @@
 		9CB2DC40228CB4AD00BEBD8F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CB2DC3E228CB4AD00BEBD8F /* LaunchScreen.storyboard */; };
 		9CB2DC4B228CB4AD00BEBD8F /* TextFieldComponentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB2DC4A228CB4AD00BEBD8F /* TextFieldComponentTests.swift */; };
 		9CB2DC56228CB4AD00BEBD8F /* TextFieldComponentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB2DC55228CB4AD00BEBD8F /* TextFieldComponentUITests.swift */; };
-		9CB2DC64228CB57400BEBD8F /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB2DC63228CB57400BEBD8F /* TextField.swift */; };
-		9CB2DC66228CB58100BEBD8F /* TextField.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CB2DC65228CB58100BEBD8F /* TextField.xib */; };
+		9CB2DC66228CB58100BEBD8F /* HGTextField.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CB2DC65228CB58100BEBD8F /* HGTextField.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9C9E7E42229C7229003A8E03 /* HGTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HGTextField.swift; sourceTree = "<group>"; };
 		9CA01C472299E769003FE141 /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		9CB2DC32228CB4AC00BEBD8F /* TextFieldComponent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TextFieldComponent.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CB2DC35228CB4AC00BEBD8F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -51,8 +52,7 @@
 		9CB2DC51228CB4AD00BEBD8F /* TextFieldComponentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TextFieldComponentUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CB2DC55228CB4AD00BEBD8F /* TextFieldComponentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldComponentUITests.swift; sourceTree = "<group>"; };
 		9CB2DC57228CB4AD00BEBD8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9CB2DC63228CB57400BEBD8F /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
-		9CB2DC65228CB58100BEBD8F /* TextField.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextField.xib; sourceTree = "<group>"; };
+		9CB2DC65228CB58100BEBD8F /* HGTextField.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HGTextField.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,8 +83,8 @@
 		9CA01C492299EE5C003FE141 /* Component */ = {
 			isa = PBXGroup;
 			children = (
-				9CB2DC63228CB57400BEBD8F /* TextField.swift */,
-				9CB2DC65228CB58100BEBD8F /* TextField.xib */,
+				9C9E7E42229C7229003A8E03 /* HGTextField.swift */,
+				9CB2DC65228CB58100BEBD8F /* HGTextField.xib */,
 				9CA01C472299E769003FE141 /* Validation.swift */,
 			);
 			path = Component;
@@ -249,7 +249,7 @@
 				9CB2DC40228CB4AD00BEBD8F /* LaunchScreen.storyboard in Resources */,
 				9CB2DC3D228CB4AD00BEBD8F /* Assets.xcassets in Resources */,
 				9CB2DC3B228CB4AC00BEBD8F /* Main.storyboard in Resources */,
-				9CB2DC66228CB58100BEBD8F /* TextField.xib in Resources */,
+				9CB2DC66228CB58100BEBD8F /* HGTextField.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,10 +274,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9CB2DC64228CB57400BEBD8F /* TextField.swift in Sources */,
 				9CB2DC38228CB4AC00BEBD8F /* ViewController.swift in Sources */,
 				9CA01C482299E769003FE141 /* Validation.swift in Sources */,
 				9CB2DC36228CB4AC00BEBD8F /* AppDelegate.swift in Sources */,
+				9C9E7E43229C7229003A8E03 /* HGTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
