@@ -7,9 +7,9 @@
 //
 
 import XCTest
-@testable import TextFieldComponent
+@testable import HGTextField
 
-class TextFieldComponentTests: XCTestCase {
+class HGTextFieldTests: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
