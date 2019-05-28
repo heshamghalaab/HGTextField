@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		9C055EA7229CBA79001B544F /* HGTextFieldUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C055EA6229CBA79001B544F /* HGTextFieldUITests.swift */; };
 		9C055EB5229CBA88001B544F /* HGTextFieldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C055EB4229CBA88001B544F /* HGTextFieldTests.swift */; };
+		9C055EC0229CBE36001B544F /* HGFieldPackage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C055EBF229CBE36001B544F /* HGFieldPackage.swift */; };
+		9C055EC2229CBE49001B544F /* HGPlaceHolderPackage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C055EC1229CBE49001B544F /* HGPlaceHolderPackage.swift */; };
+		9C055EC4229CBE55001B544F /* HGWarningPackage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C055EC3229CBE55001B544F /* HGWarningPackage.swift */; };
+		9C055EC6229CC05F001B544F /* HGSeparatorPackage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C055EC5229CC05F001B544F /* HGSeparatorPackage.swift */; };
+		9C055EC8229CC6FF001B544F /* HGTextFieldStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C055EC7229CC6FF001B544F /* HGTextFieldStatus.swift */; };
 		9C9E7E43229C7229003A8E03 /* HGTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9E7E42229C7229003A8E03 /* HGTextField.swift */; };
 		9CA01C482299E769003FE141 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA01C472299E769003FE141 /* Validation.swift */; };
 		9CB2DC36228CB4AC00BEBD8F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB2DC35228CB4AC00BEBD8F /* AppDelegate.swift */; };
@@ -43,6 +48,11 @@
 		9C055EB2229CBA88001B544F /* HGTextFieldTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HGTextFieldTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C055EB4229CBA88001B544F /* HGTextFieldTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HGTextFieldTests.swift; sourceTree = "<group>"; };
 		9C055EB6229CBA88001B544F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9C055EBF229CBE36001B544F /* HGFieldPackage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HGFieldPackage.swift; sourceTree = "<group>"; };
+		9C055EC1229CBE49001B544F /* HGPlaceHolderPackage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HGPlaceHolderPackage.swift; sourceTree = "<group>"; };
+		9C055EC3229CBE55001B544F /* HGWarningPackage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HGWarningPackage.swift; sourceTree = "<group>"; };
+		9C055EC5229CC05F001B544F /* HGSeparatorPackage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HGSeparatorPackage.swift; sourceTree = "<group>"; };
+		9C055EC7229CC6FF001B544F /* HGTextFieldStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HGTextFieldStatus.swift; sourceTree = "<group>"; };
 		9C9E7E42229C7229003A8E03 /* HGTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HGTextField.swift; sourceTree = "<group>"; };
 		9CA01C472299E769003FE141 /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		9CB2DC32228CB4AC00BEBD8F /* HGTextField.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HGTextField.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,9 +108,22 @@
 			path = HGTextFieldTests;
 			sourceTree = "<group>";
 		};
+		9C055EBC229CBE0C001B544F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9C055EBF229CBE36001B544F /* HGFieldPackage.swift */,
+				9C055EC1229CBE49001B544F /* HGPlaceHolderPackage.swift */,
+				9C055EC3229CBE55001B544F /* HGWarningPackage.swift */,
+				9C055EC5229CC05F001B544F /* HGSeparatorPackage.swift */,
+				9C055EC7229CC6FF001B544F /* HGTextFieldStatus.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		9CA01C492299EE5C003FE141 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				9C055EBC229CBE0C001B544F /* Model */,
 				9C9E7E42229C7229003A8E03 /* HGTextField.swift */,
 				9CB2DC65228CB58100BEBD8F /* HGTextField.xib */,
 				9CA01C472299E769003FE141 /* Validation.swift */,
@@ -291,9 +314,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				9CB2DC38228CB4AC00BEBD8F /* ViewController.swift in Sources */,
+				9C055EC8229CC6FF001B544F /* HGTextFieldStatus.swift in Sources */,
+				9C055EC2229CBE49001B544F /* HGPlaceHolderPackage.swift in Sources */,
 				9CA01C482299E769003FE141 /* Validation.swift in Sources */,
+				9C055EC0229CBE36001B544F /* HGFieldPackage.swift in Sources */,
+				9C055EC4229CBE55001B544F /* HGWarningPackage.swift in Sources */,
 				9CB2DC36228CB4AC00BEBD8F /* AppDelegate.swift in Sources */,
 				9C9E7E43229C7229003A8E03 /* HGTextField.swift in Sources */,
+				9C055EC6229CC05F001B544F /* HGSeparatorPackage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

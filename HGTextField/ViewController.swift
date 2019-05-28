@@ -16,24 +16,24 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let placeHolderFont = UIFont.boldSystemFont(ofSize: 16)
-        let textFieldFont = UIFont.systemFont(ofSize: 16)
-        let warningFont = UIFont.boldSystemFont(ofSize: 12)
-        let activeColor = UIColor(red: 10/255, green: 111/255, blue: 127/255, alpha: 1)
-        let inActiveColor = UIColor(red: 154/255, green: 152/255, blue: 153/255, alpha: 1)
-        let warningColor = UIColor(red: 208/255, green: 2/255, blue: 27/255, alpha: 1)
-        
-        
+        var emailPlaceHolderPackage = HGPlaceHolderPackage.init()
+        emailPlaceHolderPackage.text = "Email"
         emailTextField.setup(withSuperView: self.view)
-        emailTextField.setupPlaceHolderView(withText: "Email", font: placeHolderFont, activeColor: activeColor, InActiveColor: inActiveColor)
-        emailTextField.setupTextField(text: nil, textFont: textFieldFont, textColor: .darkGray, textFieldType: .email)
-        emailTextField.setupWarningView(warningText: nil, warningFont: warningFont, warningColor: warningColor, separatorColor: inActiveColor.withAlphaComponent(0.2))
+        emailTextField.configuration(with: .email, isMandatory: true)
+        emailTextField.setupTextField(with: HGFieldPackage.init())
+        emailTextField.setupPlaceHolderView(with: emailPlaceHolderPackage)
+        emailTextField.setupWarningView(with: HGWarningPackage.init())
+        emailTextField.setupSeparator(with: HGSeparatorPackage.init())
         emailTextField.beginHandlingUI()
         
+        var passwordPlaceHolderPackage = HGPlaceHolderPackage.init()
+        passwordPlaceHolderPackage.text = "Password"
         passwordTextField.setup(withSuperView: self.view)
-        passwordTextField.setupPlaceHolderView(withText: "Password", font: placeHolderFont, activeColor: activeColor, InActiveColor: inActiveColor)
-        passwordTextField.setupTextField(text: nil, textFont: textFieldFont, textColor: .darkGray, textFieldType: .password)
-        passwordTextField.setupWarningView(warningText: nil, warningFont: warningFont, warningColor: warningColor, separatorColor: inActiveColor.withAlphaComponent(0.2))
+        passwordTextField.configuration(with: .password, isMandatory: true)
+        passwordTextField.setupTextField(with: HGFieldPackage.init())
+        passwordTextField.setupPlaceHolderView(with: passwordPlaceHolderPackage)
+        passwordTextField.setupWarningView(with: HGWarningPackage.init())
+        passwordTextField.setupSeparator(with: HGSeparatorPackage.init())
         passwordTextField.beginHandlingUI()
     }
 

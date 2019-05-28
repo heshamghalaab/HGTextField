@@ -25,22 +25,15 @@ class HGTextField: UIView {
     private var isFirstTimeLayOutSuperView = true
     private var isFirstTimeAnimatePlaceHolder = true
     
-    private var text: String?
-    private var textColor = UIColor.red
-    private var textFont = UIFont()
-    private var textFieldType = FieldType.other
+    private var fieldPackage = HGFieldPackage()
+    private var placeHolderPackage = HGPlaceHolderPackage()
+    private var separatorPackage = HGSeparatorPackage()
+    private var warningPackage = HGWarningPackage()
     
-    private var placeHolderText = String()
-    private var placeHolderFont = UIFont()
-    private var placeHolderActiveColor = UIColor()
-    private var placeHolderInActiveColor = UIColor()
-    
-    private var separatorColor = UIColor.lightGray
-    
-    private var warningText: String?
-    private var warningColor = UIColor.red
-    private var warningFont = UIFont()
     var hasWarning: Bool = false
+    var status = HGTextFieldStatus.inActive { didSet { handlingSeparatorView() } }
+    private var textFieldType = FieldType.other
+    private var isMandatory = true
     
     /// the padding between the text field and the placeHolder Label.
     private let padding: CGFloat = 2
@@ -53,92 +46,6 @@ class HGTextField: UIView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         commonInit()
-    }
-    
-    func setup(withSuperView superView: UIView?){
-        self.superView = superView
-    }
-    
-    func setupTextField(text: String?, textFont: UIFont, textColor: UIColor, textFieldType: FieldType){
-        self.text = text
-        self.textFont = textFont
-        self.textColor = textColor
-        self.textFieldType = textFieldType
-    }
-    
-    func setupWarningView(warningText: String?, warningFont: UIFont, warningColor: UIColor, separatorColor: UIColor = UIColor.lightGray){
-        self.warningText = warningText
-        self.warningFont = warningFont
-        self.warningColor = warningColor
-        self.separatorColor = separatorColor
-    }
-    
-    /// make sure to call this before setupTextField method.
-    func setupPlaceHolderView(withText text: String, font: UIFont, activeColor: UIColor, InActiveColor: UIColor){
-        self.placeHolderText = text
-        self.placeHolderFont = font
-        self.placeHolderActiveColor = activeColor
-        self.placeHolderInActiveColor = InActiveColor
-    }
-    
-    func beginHandlingUI(){
-        beginHandlingPlaceHolderUI()
-        beginHandlingWarningUI()
-        beginHandlingTextUI()
-        
-        setText(with: self.text)
-        setWarningText(with: self.warningText)
-        self.isHidden = false
-    }
-    
-    func setText(with text: String?){
-        self.text = text
-        
-        guard let text = text else {
-            self.inActivePlaceHolderAnimation()
-            return
-        }
-        
-        self.activePlaceHolderAnimation()
-        textField.text = text
-    }
-    
-    func getText() -> String?{
-        return self.text
-    }
-    
-    func setWarningText(with warningText: String?){
-        self.warningText = warningText
-        
-        guard let warningText = warningText else {
-            hasWarning = false
-            warningHeight.constant = 0
-            separatorView.backgroundColor = separatorColor
-            layOutSuperView()
-            return
-        }
-        
-        let width = warningLabel.frame.width
-        hasWarning = true
-        warningLabel.text = warningText
-        warningHeight.constant = height(withWidth: width, font: warningLabel.font, value: warningText)
-        separatorView.backgroundColor = warningColor
-        layOutSuperView()
-    }
-    
-    private func beginHandlingPlaceHolderUI(){
-        placeHolderLabel.text = placeHolderText
-    }
-    
-    private func beginHandlingTextUI(){
-        textField.font = textFont
-        textField.textColor = textColor
-        textField.tintColor = placeHolderActiveColor
-    }
-    
-    private func beginHandlingWarningUI(){
-        warningLabel.font = warningFont
-        warningLabel.textColor = warningColor
     }
     
     private func commonInit(){
@@ -158,40 +65,157 @@ class HGTextField: UIView {
             mainView.bottomAnchor.constraint(equalTo: self.bottomAnchor)])
     }
     
+    func setup(withSuperView superView: UIView?){
+        self.superView = superView
+    }
+    
+    func configuration(with textFieldType: FieldType, isMandatory: Bool){
+        // TODO: handling password type, and handling isMandatory scenario.
+        self.textFieldType = textFieldType
+        self.isMandatory = isMandatory
+    }
+    
+    func setupTextField(with fieldPackage: HGFieldPackage){
+        self.fieldPackage = fieldPackage
+    }
+    
+    func setupWarningView(with warningPackage: HGWarningPackage){
+        self.warningPackage = warningPackage
+    }
+    
+    func setupPlaceHolderView(with placeHolderPackage: HGPlaceHolderPackage){
+        self.placeHolderPackage = placeHolderPackage
+    }
+    
+    func setupSeparator(with separatorPackage: HGSeparatorPackage){
+        self.separatorPackage = separatorPackage
+    }
+    
+    func beginHandlingUI(){
+        beginHandlingPlaceHolderUI()
+        beginHandlingWarningUI()
+        beginHandlingTextUI()
+        
+        setText(with: self.fieldPackage.text)
+        setWarningText(with: self.warningPackage.warningText)
+        self.isHidden = false
+    }
+    
+    private func beginHandlingPlaceHolderUI(){
+        placeHolderLabel.text = placeHolderPackage.text
+    }
+    
+    private func beginHandlingTextUI(){
+        textField.font = fieldPackage.textFont
+        textField.textColor = fieldPackage.textColor
+        textField.tintColor = placeHolderPackage.activeColor
+    }
+    
+    private func beginHandlingWarningUI(){
+        warningLabel.font = warningPackage.warningFont
+        warningLabel.textColor = warningPackage.warningColor
+    }
+    
+    func setText(with text: String?){
+        self.fieldPackage.text = text
+        self.handlingSeparatorView()
+        
+        guard let text = text else {
+            self.inActivePlaceHolderAnimation()
+            return
+        }
+        
+        self.activePlaceHolderAnimation()
+        textField.text = text
+    }
+    
+    func getText() -> String?{
+        return self.fieldPackage.text
+    }
+    
+    func setWarningText(with warningText: String?){
+        self.warningPackage.warningText = warningText
+        
+        guard let warningText = warningText else {
+            hasWarning = false
+            handlingSeparatorView()
+            warningHeight.constant = 0
+            layOutSuperView()
+            return
+        }
+        
+        let width = warningLabel.frame.width
+        hasWarning = true
+        handlingSeparatorView()
+        warningLabel.text = warningText
+        warningHeight.constant = height(withWidth: width, font: warningLabel.font, value: warningText)
+        layOutSuperView()
+    }
+    
+    private func handleStatus(with newStatus: HGTextFieldStatus){
+        self.status = newStatus
+    }
+    
+    private func handlingSeparatorView(){
+        guard !hasWarning else{
+            self.separatorView.backgroundColor = self.separatorPackage.atWarningColor
+            return
+        }
+        
+        switch self.status {
+        case .active: self.separatorView.backgroundColor = self.separatorPackage.activeColor
+        case .inActive: self.separatorView.backgroundColor = self.separatorPackage.inActiveColor
+        }
+    }
+    
     private func activePlaceHolderAnimation(){
-        let placeHolderHight = height(withWidth: placeHolderLabel.frame.width, font: placeHolderFont, value: placeHolderText)
+        let placeHolderHight = height(withWidth: placeHolderLabel.frame.width,
+                                      font: placeHolderPackage.font,
+                                      value: placeHolderPackage.text)
         topOfTextField.constant = placeHolderHight + padding
         topOfPlaceHolderLabel.constant = 0
+        handleStatus(with: .active)
         
         guard !isFirstTimeAnimatePlaceHolder else {
-            self.animatePlaceHolder(with: self.placeHolderActiveColor, font: placeHolderFont,
+            self.animatePlaceHolder(with: self.placeHolderPackage.activeColor,
+                                    font: placeHolderPackage.font,
                                     transform: CGAffineTransform(scaleX: 1, y: 1), leading: 0)
             self.isFirstTimeAnimatePlaceHolder = false
             return
         }
         
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
-            self.animatePlaceHolder(with: self.placeHolderActiveColor, font: self.placeHolderFont,
+            self.animatePlaceHolder(with: self.placeHolderPackage.activeColor,
+                                    font: self.placeHolderPackage.font,
                                     transform: CGAffineTransform(scaleX: 1, y: 1), leading: 0)
         })
     }
     
     private func inActivePlaceHolderAnimation(){
-        let textHight = height(withWidth: textField.frame.width, font: textFont, value: text ?? "")
-        let placeHolderHight = height(withWidth: placeHolderLabel.frame.width, font: placeHolderFont, value: placeHolderText)
+        let textHight = height(withWidth: textField.frame.width,
+                               font: fieldPackage.textFont,
+                               value: fieldPackage.text ?? "")
+        let placeHolderHight = height(withWidth: placeHolderLabel.frame.width,
+                                      font: placeHolderPackage.font,
+                                      value: placeHolderPackage.text)
         topOfTextField.constant =  padding
         topOfPlaceHolderLabel.constant = (textHight / 2) - (placeHolderHight / 2)
+        handleStatus(with: .inActive)
         
         guard !isFirstTimeAnimatePlaceHolder else {
-            self.animatePlaceHolder(with: self.placeHolderInActiveColor, font: placeHolderFont,
-                                    transform: CGAffineTransform(scaleX: 0.925, y: 0.925), leading: -14)
+            self.animatePlaceHolder(with: placeHolderPackage.InActiveColor,
+                                    font: placeHolderPackage.font,
+                                    transform: CGAffineTransform(scaleX: 0.925, y: 0.925),
+                                    leading: -14)
             self.isFirstTimeAnimatePlaceHolder = false
             return
         }
         
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
-            self.animatePlaceHolder(with: self.placeHolderInActiveColor, font: self.placeHolderFont,
-                                    transform: CGAffineTransform(scaleX: 0.925, y: 0.925), leading: -14)
+            self.animatePlaceHolder(with: self.placeHolderPackage.InActiveColor,
+                                    font: self.placeHolderPackage.font,
+                                    transform: CGAffineTransform(scaleX: 0.925, y: 0.925),
+                                    leading: -14)
         })
     }
     
@@ -228,7 +252,6 @@ class HGTextField: UIView {
         setWarningText(with: warningText)
         return response.isValidate
     }
-    
 }
 
 extension HGTextField: UITextFieldDelegate{
