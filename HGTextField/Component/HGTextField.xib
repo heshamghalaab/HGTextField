@@ -10,15 +10,17 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HGTextField" customModule="TextFieldComponent" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HGTextField" customModule="HGTextField" customModuleProvider="target">
             <connections>
                 <outlet property="leadingOfPlaceHolderLabel" destination="sVm-G9-TBZ" id="unF-LU-f7K"/>
                 <outlet property="mainView" destination="iN0-l3-epB" id="OKi-d1-s7C"/>
                 <outlet property="placeHolderLabel" destination="wrw-0X-32K" id="XMs-E5-F7X"/>
                 <outlet property="separatorView" destination="47e-Wc-aW3" id="k3b-lN-c5v"/>
+                <outlet property="showHideButton" destination="Lfq-1x-i1K" id="Y7i-uR-zxG"/>
                 <outlet property="textField" destination="NBA-AG-UDC" id="EOF-E8-u0w"/>
                 <outlet property="topOfPlaceHolderLabel" destination="GD6-8y-kpz" id="qwO-0N-BHS"/>
                 <outlet property="topOfTextField" destination="4CA-oS-abr" id="sx1-jO-AAh"/>
+                <outlet property="trailingOfTextField" destination="lid-9Q-07F" id="BDu-Ad-5NZ"/>
                 <outlet property="warningHeight" destination="IbV-q4-Lfe" id="bDI-DF-4Zv"/>
                 <outlet property="warningLabel" destination="fqi-Ex-ATT" id="n5y-qx-fJY"/>
             </connections>
@@ -59,14 +61,23 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lfq-1x-i1K">
+                    <rect key="frame" x="384" y="18.5" width="30" height="30"/>
+                    <state key="normal" image="showIcon"/>
+                    <connections>
+                        <action selector="onTapShowHide:" destination="-1" eventType="touchUpInside" id="d0L-na-aUA"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="Lfq-1x-i1K" secondAttribute="trailing" id="01y-ck-OR6"/>
                 <constraint firstItem="47e-Wc-aW3" firstAttribute="top" secondItem="NBA-AG-UDC" secondAttribute="bottom" id="2hT-nR-sXu"/>
                 <constraint firstItem="NBA-AG-UDC" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="21" id="4CA-oS-abr"/>
                 <constraint firstItem="fqi-Ex-ATT" firstAttribute="top" secondItem="47e-Wc-aW3" secondAttribute="bottom" id="FU9-Kf-SaU"/>
                 <constraint firstItem="wrw-0X-32K" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="GD6-8y-kpz"/>
                 <constraint firstItem="fqi-Ex-ATT" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="IcD-3R-Ohk"/>
+                <constraint firstItem="Lfq-1x-i1K" firstAttribute="centerY" secondItem="NBA-AG-UDC" secondAttribute="centerY" id="ODF-ac-CCd"/>
                 <constraint firstAttribute="bottom" secondItem="fqi-Ex-ATT" secondAttribute="bottom" id="VKc-4u-7Dd"/>
                 <constraint firstItem="47e-Wc-aW3" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="aSp-wT-3pk"/>
                 <constraint firstItem="NBA-AG-UDC" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="dnU-L7-FcK"/>
@@ -81,4 +92,7 @@
             <point key="canvasLocation" x="131.8840579710145" y="-138.28125"/>
         </view>
     </objects>
+    <resources>
+        <image name="showIcon" width="30" height="30"/>
+    </resources>
 </document>

@@ -16,10 +16,15 @@ class HGTextField: UIView {
     @IBOutlet weak private var warningLabel: UILabel!
     @IBOutlet weak private var separatorView: UIView!
     
+    @IBOutlet weak var showHideButton: UIButton!
     @IBOutlet weak private var topOfTextField: NSLayoutConstraint!
     @IBOutlet weak private var topOfPlaceHolderLabel: NSLayoutConstraint!
     @IBOutlet weak private var leadingOfPlaceHolderLabel: NSLayoutConstraint!
     @IBOutlet weak private var warningHeight: NSLayoutConstraint!
+    @IBOutlet weak private var trailingOfTextField: NSLayoutConstraint!
+    
+    /// the padding between the text field and the placeHolder Label.
+    private let padding: CGFloat = 2
     
     weak private var superView: UIView?
     private var isFirstTimeLayOutSuperView = true
@@ -34,9 +39,9 @@ class HGTextField: UIView {
     var status = HGTextFieldStatus.inActive { didSet { handlingSeparatorView() } }
     private var textFieldType = FieldType.other
     private var isMandatory = true
-    
-    /// the padding between the text field and the placeHolder Label.
-    private let padding: CGFloat = 2
+    private var haveShowPassword = false
+    private var isSecureTextEntry = false
+    private var keyboardType = UIKeyboardType.default
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -69,10 +74,16 @@ class HGTextField: UIView {
         self.superView = superView
     }
     
-    func configuration(with textFieldType: FieldType, isMandatory: Bool){
-        // TODO: handling password type, and handling isMandatory scenario.
+    func configuration(with textFieldType: FieldType, isMandatory: Bool, keyboardType: UIKeyboardType = .default){
         self.textFieldType = textFieldType
         self.isMandatory = isMandatory
+        self.keyboardType = keyboardType
+    }
+    
+    /// call this method only if it needed,
+    func configure(isSecureTextEntry: Bool, haveShowPassword: Bool){
+        self.isSecureTextEntry = isSecureTextEntry
+        self.haveShowPassword = haveShowPassword
     }
     
     func setupTextField(with fieldPackage: HGFieldPackage){
@@ -95,6 +106,7 @@ class HGTextField: UIView {
         beginHandlingPlaceHolderUI()
         beginHandlingWarningUI()
         beginHandlingTextUI()
+        beginHandlingShowHideUI()
         
         setText(with: self.fieldPackage.text)
         setWarningText(with: self.warningPackage.warningText)
@@ -109,11 +121,20 @@ class HGTextField: UIView {
         textField.font = fieldPackage.textFont
         textField.textColor = fieldPackage.textColor
         textField.tintColor = placeHolderPackage.activeColor
+        textField.keyboardType = keyboardType
     }
     
     private func beginHandlingWarningUI(){
         warningLabel.font = warningPackage.warningFont
         warningLabel.textColor = warningPackage.warningColor
+    }
+    
+    private func beginHandlingShowHideUI(){
+        textField.isSecureTextEntry = isSecureTextEntry
+        showHideButton.isHidden = !haveShowPassword
+        trailingOfTextField.constant = haveShowPassword ? showHideButton.frame.width : 0
+        let newIconName = textField.isSecureTextEntry ? "showIcon" : "hideIcon"
+        showHideButton.setImage(UIImage(named: newIconName), for: .normal)
     }
     
     func setText(with text: String?){
@@ -248,10 +269,27 @@ class HGTextField: UIView {
     
     func isValidate() -> Bool{
         let response = Validation().validate(withValidationType: textFieldType, value: textField.text)
-        let warningText = response.isValidate ? nil : response.warning
-        setWarningText(with: warningText)
+        let warning = response.isValidate ? nil : response.warning
+        
+        if let warning = warning{
+            // check if the warning = .isReuired and already the field is configured as not a mendatory
+            // so it should not make any warning.
+            if warning == .isReuired , !self.isMandatory{
+                setWarningText(with: nil)
+                return true
+            }
+        }
+        
+        setWarningText(with: warning?.rawValue)
         return response.isValidate
     }
+    
+    @IBAction func onTapShowHide(_ sender: UIButton) {
+        textField.isSecureTextEntry.toggle()
+        let newIconName = textField.isSecureTextEntry ? "showIcon" : "hideIcon"
+        showHideButton.setImage(UIImage(named: newIconName), for: .normal)
+    }
+    
 }
 
 extension HGTextField: UITextFieldDelegate{

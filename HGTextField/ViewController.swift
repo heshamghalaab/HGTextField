@@ -12,14 +12,25 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var emailTextField: HGTextField!
     @IBOutlet weak var passwordTextField: HGTextField!
+    @IBOutlet weak var userNameField: HGTextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        var userNamePlaceHolderPackage = HGPlaceHolderPackage.init()
+        userNamePlaceHolderPackage.text = "User Name"
+        userNameField.setup(withSuperView: self.view)
+        userNameField.configuration(with: .other, isMandatory: false, keyboardType: .default)
+        userNameField.setupTextField(with: HGFieldPackage.init())
+        userNameField.setupPlaceHolderView(with: userNamePlaceHolderPackage)
+        userNameField.setupWarningView(with: HGWarningPackage.init())
+        userNameField.setupSeparator(with: HGSeparatorPackage.init())
+        userNameField.beginHandlingUI()
+        
         var emailPlaceHolderPackage = HGPlaceHolderPackage.init()
         emailPlaceHolderPackage.text = "Email"
         emailTextField.setup(withSuperView: self.view)
-        emailTextField.configuration(with: .email, isMandatory: true)
+        emailTextField.configuration(with: .email, isMandatory: true, keyboardType: .emailAddress)
         emailTextField.setupTextField(with: HGFieldPackage.init())
         emailTextField.setupPlaceHolderView(with: emailPlaceHolderPackage)
         emailTextField.setupWarningView(with: HGWarningPackage.init())
@@ -29,7 +40,8 @@ class ViewController: UIViewController {
         var passwordPlaceHolderPackage = HGPlaceHolderPackage.init()
         passwordPlaceHolderPackage.text = "Password"
         passwordTextField.setup(withSuperView: self.view)
-        passwordTextField.configuration(with: .password, isMandatory: true)
+        passwordTextField.configuration(with: .password, isMandatory: true, keyboardType: .default)
+        passwordTextField.configure(isSecureTextEntry: true, haveShowPassword: true)
         passwordTextField.setupTextField(with: HGFieldPackage.init())
         passwordTextField.setupPlaceHolderView(with: passwordPlaceHolderPackage)
         passwordTextField.setupWarningView(with: HGWarningPackage.init())
