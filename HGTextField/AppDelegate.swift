@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  TextFieldComponent
+//  HGTextField
 //
 //  Created by hesham ghalaab on 5/15/19.
 //  Copyright © 2019 hesham ghalaab. All rights reserved.

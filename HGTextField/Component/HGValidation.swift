@@ -1,6 +1,6 @@
 //
-//  Validation.swift
-//  TextFieldComponent
+//  HGValidation.swift
+//  HGTextField
 //
 //  Created by hesham ghalaab on 5/25/19.
 //  Copyright © 2019 hesham ghalaab. All rights reserved.
@@ -8,28 +8,28 @@
 
 import Foundation
 
-enum FieldType{
+enum HGFieldType{
     case email
     case password
     case confirmPassword(password: String?)
     case other
 }
 
-struct ValidationResponse {
-    let warning: Warning?
+struct HGValidationResponse {
+    let warning: HGWarning?
     let isValidate: Bool
 }
 
-enum Warning: String{
+enum HGWarning: String{
     case isReuired = "Field is required"
     case enterValidEmail = "Enter a valid email"
     case passwordMustBeMoreThanEightCharacters =  "Password must be more than 8 characters"
     case passwordsAreNotMatched = "Passwords are not matched"
 }
 
-class Validation{
+class HGValidation{
     
-    func validate(withValidationType type: FieldType, value: String?) -> ValidationResponse{
+    func validate(withValidationType type: HGFieldType, value: String?) -> HGValidationResponse{
         switch type {
         case .email:
             return isEmailValidate(withValue: value)
@@ -39,22 +39,22 @@ class Validation{
             return isConfirmPasswordValidate(withConfirmPassword: confirmPassword, andPassword: value)
         case .other:
             guard let value = value, !value.isEmpty else {
-                return ValidationResponse(warning: .isReuired, isValidate: false)
+                return HGValidationResponse(warning: .isReuired, isValidate: false)
             }
-            return ValidationResponse(warning: nil, isValidate: true)
+            return HGValidationResponse(warning: nil, isValidate: true)
         }
     }
     
-    private func isEmailValidate(withValue value: String?) -> ValidationResponse{
+    private func isEmailValidate(withValue value: String?) -> HGValidationResponse{
         guard let value = value, !value.isEmpty else {
-            return ValidationResponse(warning: .isReuired, isValidate: false)
+            return HGValidationResponse(warning: .isReuired, isValidate: false)
         }
         
         guard checkEmailConfirmation(emailAddress: value) else{
-            return ValidationResponse(warning: .enterValidEmail, isValidate: false)
+            return HGValidationResponse(warning: .enterValidEmail, isValidate: false)
         }
         
-        return ValidationResponse(warning: nil, isValidate: true)
+        return HGValidationResponse(warning: nil, isValidate: true)
     }
     
     private func checkEmailConfirmation(emailAddress: String) -> Bool{
@@ -64,16 +64,16 @@ class Validation{
         return emailIsGood
     }
     
-    private func isPasswordValidate(withValue value: String?) -> ValidationResponse{
+    private func isPasswordValidate(withValue value: String?) -> HGValidationResponse{
         guard let value = value, !value.isEmpty else {
-            return ValidationResponse(warning: .isReuired, isValidate: false)
+            return HGValidationResponse(warning: .isReuired, isValidate: false)
         }
         
         guard checkPasswordConfirmation(password: value) else{
-            return ValidationResponse(warning: .passwordMustBeMoreThanEightCharacters, isValidate: false)
+            return HGValidationResponse(warning: .passwordMustBeMoreThanEightCharacters, isValidate: false)
         }
         
-        return ValidationResponse(warning: nil, isValidate: true)
+        return HGValidationResponse(warning: nil, isValidate: true)
     }
     
     private func checkPasswordConfirmation(password: String) -> Bool{
@@ -83,17 +83,17 @@ class Validation{
         return passwordIsGood
     }
     
-    private func isConfirmPasswordValidate(withConfirmPassword confirmPassword: String?, andPassword password: String?) -> ValidationResponse{
+    private func isConfirmPasswordValidate(withConfirmPassword confirmPassword: String?, andPassword password: String?) -> HGValidationResponse{
         guard let confirmPassword = confirmPassword, !confirmPassword.isEmpty ,
               let password = password, !password.isEmpty else {
-            return ValidationResponse(warning: .isReuired, isValidate: false)
+            return HGValidationResponse(warning: .isReuired, isValidate: false)
         }
         
         guard password == confirmPassword else{
-            return ValidationResponse(warning: .passwordsAreNotMatched, isValidate: false)
+            return HGValidationResponse(warning: .passwordsAreNotMatched, isValidate: false)
         }
         
-        return ValidationResponse(warning: nil, isValidate: true)
+        return HGValidationResponse(warning: nil, isValidate: true)
     }
 }
 

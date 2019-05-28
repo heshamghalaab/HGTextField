@@ -1,6 +1,6 @@
 //
 //  HGTextField.swift
-//  TextFieldComponent
+//  HGTextField
 //
 //  Created by hesham ghalaab on 5/15/19.
 //  Copyright © 2019 hesham ghalaab. All rights reserved.
@@ -37,7 +37,7 @@ class HGTextField: UIView {
     
     var hasWarning: Bool = false
     var status = HGTextFieldStatus.inActive { didSet { handlingSeparatorView() } }
-    private var textFieldType = FieldType.other
+    private var textFieldType = HGFieldType.other
     private var isMandatory = true
     private var haveShowPassword = false
     private var isSecureTextEntry = false
@@ -74,7 +74,7 @@ class HGTextField: UIView {
         self.superView = superView
     }
     
-    func configuration(with textFieldType: FieldType, isMandatory: Bool, keyboardType: UIKeyboardType = .default){
+    func configuration(with textFieldType: HGFieldType, isMandatory: Bool, keyboardType: UIKeyboardType = .default){
         self.textFieldType = textFieldType
         self.isMandatory = isMandatory
         self.keyboardType = keyboardType
@@ -268,7 +268,7 @@ class HGTextField: UIView {
     }
     
     func isValidate() -> Bool{
-        let response = Validation().validate(withValidationType: textFieldType, value: textField.text)
+        let response = HGValidation().validate(withValidationType: textFieldType, value: textField.text)
         let warning = response.isValidate ? nil : response.warning
         
         if let warning = warning{
