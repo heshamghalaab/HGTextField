@@ -1,8 +1,8 @@
 //
-//  TextFieldComponentUITests.swift
-//  TextFieldComponentUITests
+//  HGTextFieldUITests.swift
+//  HGTextFieldUITests
 //
-//  Created by hesham ghalaab on 5/15/19.
+//  Created by hesham ghalaab on 5/28/19.
 //  Copyright © 2019 hesham ghalaab. All rights reserved.
 //
 

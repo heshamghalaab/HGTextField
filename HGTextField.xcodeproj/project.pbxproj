@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C055EA7229CBA79001B544F /* HGTextFieldUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C055EA6229CBA79001B544F /* HGTextFieldUITests.swift */; };
+		9C055EB5229CBA88001B544F /* HGTextFieldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C055EB4229CBA88001B544F /* HGTextFieldTests.swift */; };
 		9C9E7E43229C7229003A8E03 /* HGTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9E7E42229C7229003A8E03 /* HGTextField.swift */; };
 		9CA01C482299E769003FE141 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA01C472299E769003FE141 /* Validation.swift */; };
 		9CB2DC36228CB4AC00BEBD8F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB2DC35228CB4AC00BEBD8F /* AppDelegate.swift */; };
@@ -14,29 +16,33 @@
 		9CB2DC3B228CB4AC00BEBD8F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CB2DC39228CB4AC00BEBD8F /* Main.storyboard */; };
 		9CB2DC3D228CB4AD00BEBD8F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CB2DC3C228CB4AD00BEBD8F /* Assets.xcassets */; };
 		9CB2DC40228CB4AD00BEBD8F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CB2DC3E228CB4AD00BEBD8F /* LaunchScreen.storyboard */; };
-		9CB2DC4B228CB4AD00BEBD8F /* HGTextFieldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB2DC4A228CB4AD00BEBD8F /* HGTextFieldTests.swift */; };
-		9CB2DC56228CB4AD00BEBD8F /* HGTextFieldUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB2DC55228CB4AD00BEBD8F /* HGTextFieldUITests.swift */; };
 		9CB2DC66228CB58100BEBD8F /* HGTextField.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CB2DC65228CB58100BEBD8F /* HGTextField.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		9CB2DC47228CB4AD00BEBD8F /* PBXContainerItemProxy */ = {
+		9C055EA9229CBA79001B544F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9CB2DC2A228CB4AC00BEBD8F /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 9CB2DC31228CB4AC00BEBD8F;
-			remoteInfo = TextFieldComponent;
+			remoteInfo = HGTextField;
 		};
-		9CB2DC52228CB4AD00BEBD8F /* PBXContainerItemProxy */ = {
+		9C055EB7229CBA88001B544F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9CB2DC2A228CB4AC00BEBD8F /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 9CB2DC31228CB4AC00BEBD8F;
-			remoteInfo = TextFieldComponent;
+			remoteInfo = HGTextField;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9C055EA4229CBA79001B544F /* HGTextFieldUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HGTextFieldUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C055EA6229CBA79001B544F /* HGTextFieldUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HGTextFieldUITests.swift; sourceTree = "<group>"; };
+		9C055EA8229CBA79001B544F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9C055EB2229CBA88001B544F /* HGTextFieldTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HGTextFieldTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C055EB4229CBA88001B544F /* HGTextFieldTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HGTextFieldTests.swift; sourceTree = "<group>"; };
+		9C055EB6229CBA88001B544F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9C9E7E42229C7229003A8E03 /* HGTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HGTextField.swift; sourceTree = "<group>"; };
 		9CA01C472299E769003FE141 /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		9CB2DC32228CB4AC00BEBD8F /* HGTextField.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HGTextField.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -46,31 +52,25 @@
 		9CB2DC3C228CB4AD00BEBD8F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9CB2DC3F228CB4AD00BEBD8F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9CB2DC41228CB4AD00BEBD8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9CB2DC46228CB4AD00BEBD8F /* HGTextFieldTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HGTextFieldTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9CB2DC4A228CB4AD00BEBD8F /* HGTextFieldTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HGTextFieldTests.swift; sourceTree = "<group>"; };
-		9CB2DC4C228CB4AD00BEBD8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9CB2DC51228CB4AD00BEBD8F /* HGTextFieldUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HGTextFieldUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9CB2DC55228CB4AD00BEBD8F /* HGTextFieldUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HGTextFieldUITests.swift; sourceTree = "<group>"; };
-		9CB2DC57228CB4AD00BEBD8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9CB2DC65228CB58100BEBD8F /* HGTextField.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HGTextField.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		9C055EA1229CBA79001B544F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9C055EAF229CBA88001B544F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9CB2DC2F228CB4AC00BEBD8F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9CB2DC43228CB4AD00BEBD8F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9CB2DC4E228CB4AD00BEBD8F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -80,6 +80,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9C055EA5229CBA79001B544F /* HGTextFieldUITests */ = {
+			isa = PBXGroup;
+			children = (
+				9C055EA6229CBA79001B544F /* HGTextFieldUITests.swift */,
+				9C055EA8229CBA79001B544F /* Info.plist */,
+			);
+			path = HGTextFieldUITests;
+			sourceTree = "<group>";
+		};
+		9C055EB3229CBA88001B544F /* HGTextFieldTests */ = {
+			isa = PBXGroup;
+			children = (
+				9C055EB4229CBA88001B544F /* HGTextFieldTests.swift */,
+				9C055EB6229CBA88001B544F /* Info.plist */,
+			);
+			path = HGTextFieldTests;
+			sourceTree = "<group>";
+		};
 		9CA01C492299EE5C003FE141 /* Component */ = {
 			isa = PBXGroup;
 			children = (
@@ -94,8 +112,8 @@
 			isa = PBXGroup;
 			children = (
 				9CB2DC34228CB4AC00BEBD8F /* HGTextField */,
-				9CB2DC49228CB4AD00BEBD8F /* HGTextFieldTests */,
-				9CB2DC54228CB4AD00BEBD8F /* HGTextFieldUITests */,
+				9C055EA5229CBA79001B544F /* HGTextFieldUITests */,
+				9C055EB3229CBA88001B544F /* HGTextFieldTests */,
 				9CB2DC33228CB4AC00BEBD8F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -104,8 +122,8 @@
 			isa = PBXGroup;
 			children = (
 				9CB2DC32228CB4AC00BEBD8F /* HGTextField.app */,
-				9CB2DC46228CB4AD00BEBD8F /* HGTextFieldTests.xctest */,
-				9CB2DC51228CB4AD00BEBD8F /* HGTextFieldUITests.xctest */,
+				9C055EA4229CBA79001B544F /* HGTextFieldUITests.xctest */,
+				9C055EB2229CBA88001B544F /* HGTextFieldTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -124,27 +142,45 @@
 			path = HGTextField;
 			sourceTree = "<group>";
 		};
-		9CB2DC49228CB4AD00BEBD8F /* HGTextFieldTests */ = {
-			isa = PBXGroup;
-			children = (
-				9CB2DC4A228CB4AD00BEBD8F /* HGTextFieldTests.swift */,
-				9CB2DC4C228CB4AD00BEBD8F /* Info.plist */,
-			);
-			path = HGTextFieldTests;
-			sourceTree = "<group>";
-		};
-		9CB2DC54228CB4AD00BEBD8F /* HGTextFieldUITests */ = {
-			isa = PBXGroup;
-			children = (
-				9CB2DC55228CB4AD00BEBD8F /* HGTextFieldUITests.swift */,
-				9CB2DC57228CB4AD00BEBD8F /* Info.plist */,
-			);
-			path = HGTextFieldUITests;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		9C055EA3229CBA79001B544F /* HGTextFieldUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9C055EAB229CBA79001B544F /* Build configuration list for PBXNativeTarget "HGTextFieldUITests" */;
+			buildPhases = (
+				9C055EA0229CBA79001B544F /* Sources */,
+				9C055EA1229CBA79001B544F /* Frameworks */,
+				9C055EA2229CBA79001B544F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9C055EAA229CBA79001B544F /* PBXTargetDependency */,
+			);
+			name = HGTextFieldUITests;
+			productName = HGTextFieldUITests;
+			productReference = 9C055EA4229CBA79001B544F /* HGTextFieldUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		9C055EB1229CBA88001B544F /* HGTextFieldTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9C055EB9229CBA88001B544F /* Build configuration list for PBXNativeTarget "HGTextFieldTests" */;
+			buildPhases = (
+				9C055EAE229CBA88001B544F /* Sources */,
+				9C055EAF229CBA88001B544F /* Frameworks */,
+				9C055EB0229CBA88001B544F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9C055EB8229CBA88001B544F /* PBXTargetDependency */,
+			);
+			name = HGTextFieldTests;
+			productName = HGTextFieldTests;
+			productReference = 9C055EB2229CBA88001B544F /* HGTextFieldTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		9CB2DC31228CB4AC00BEBD8F /* HGTextField */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9CB2DC5A228CB4AD00BEBD8F /* Build configuration list for PBXNativeTarget "HGTextField" */;
@@ -162,42 +198,6 @@
 			productReference = 9CB2DC32228CB4AC00BEBD8F /* HGTextField.app */;
 			productType = "com.apple.product-type.application";
 		};
-		9CB2DC45228CB4AD00BEBD8F /* HGTextFieldTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 9CB2DC5D228CB4AD00BEBD8F /* Build configuration list for PBXNativeTarget "HGTextFieldTests" */;
-			buildPhases = (
-				9CB2DC42228CB4AD00BEBD8F /* Sources */,
-				9CB2DC43228CB4AD00BEBD8F /* Frameworks */,
-				9CB2DC44228CB4AD00BEBD8F /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				9CB2DC48228CB4AD00BEBD8F /* PBXTargetDependency */,
-			);
-			name = HGTextFieldTests;
-			productName = TextFieldComponentTests;
-			productReference = 9CB2DC46228CB4AD00BEBD8F /* HGTextFieldTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		9CB2DC50228CB4AD00BEBD8F /* HGTextFieldUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 9CB2DC60228CB4AD00BEBD8F /* Build configuration list for PBXNativeTarget "HGTextFieldUITests" */;
-			buildPhases = (
-				9CB2DC4D228CB4AD00BEBD8F /* Sources */,
-				9CB2DC4E228CB4AD00BEBD8F /* Frameworks */,
-				9CB2DC4F228CB4AD00BEBD8F /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				9CB2DC53228CB4AD00BEBD8F /* PBXTargetDependency */,
-			);
-			name = HGTextFieldUITests;
-			productName = TextFieldComponentUITests;
-			productReference = 9CB2DC51228CB4AD00BEBD8F /* HGTextFieldUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -208,16 +208,16 @@
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = "hesham ghalaab";
 				TargetAttributes = {
+					9C055EA3229CBA79001B544F = {
+						CreatedOnToolsVersion = 10.2.1;
+						TestTargetID = 9CB2DC31228CB4AC00BEBD8F;
+					};
+					9C055EB1229CBA88001B544F = {
+						CreatedOnToolsVersion = 10.2.1;
+						TestTargetID = 9CB2DC31228CB4AC00BEBD8F;
+					};
 					9CB2DC31228CB4AC00BEBD8F = {
 						CreatedOnToolsVersion = 10.2.1;
-					};
-					9CB2DC45228CB4AD00BEBD8F = {
-						CreatedOnToolsVersion = 10.2.1;
-						TestTargetID = 9CB2DC31228CB4AC00BEBD8F;
-					};
-					9CB2DC50228CB4AD00BEBD8F = {
-						CreatedOnToolsVersion = 10.2.1;
-						TestTargetID = 9CB2DC31228CB4AC00BEBD8F;
 					};
 				};
 			};
@@ -235,13 +235,27 @@
 			projectRoot = "";
 			targets = (
 				9CB2DC31228CB4AC00BEBD8F /* HGTextField */,
-				9CB2DC45228CB4AD00BEBD8F /* HGTextFieldTests */,
-				9CB2DC50228CB4AD00BEBD8F /* HGTextFieldUITests */,
+				9C055EA3229CBA79001B544F /* HGTextFieldUITests */,
+				9C055EB1229CBA88001B544F /* HGTextFieldTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		9C055EA2229CBA79001B544F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9C055EB0229CBA88001B544F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9CB2DC30228CB4AC00BEBD8F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -253,23 +267,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9CB2DC44228CB4AD00BEBD8F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9CB2DC4F228CB4AD00BEBD8F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		9C055EA0229CBA79001B544F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C055EA7229CBA79001B544F /* HGTextFieldUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9C055EAE229CBA88001B544F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C055EB5229CBA88001B544F /* HGTextFieldTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9CB2DC2E228CB4AC00BEBD8F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -281,34 +297,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9CB2DC42228CB4AD00BEBD8F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				9CB2DC4B228CB4AD00BEBD8F /* HGTextFieldTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9CB2DC4D228CB4AD00BEBD8F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				9CB2DC56228CB4AD00BEBD8F /* HGTextFieldUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		9CB2DC48228CB4AD00BEBD8F /* PBXTargetDependency */ = {
+		9C055EAA229CBA79001B544F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 9CB2DC31228CB4AC00BEBD8F /* HGTextField */;
-			targetProxy = 9CB2DC47228CB4AD00BEBD8F /* PBXContainerItemProxy */;
+			targetProxy = 9C055EA9229CBA79001B544F /* PBXContainerItemProxy */;
 		};
-		9CB2DC53228CB4AD00BEBD8F /* PBXTargetDependency */ = {
+		9C055EB8229CBA88001B544F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 9CB2DC31228CB4AC00BEBD8F /* HGTextField */;
-			targetProxy = 9CB2DC52228CB4AD00BEBD8F /* PBXContainerItemProxy */;
+			targetProxy = 9C055EB7229CBA88001B544F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -332,6 +332,84 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		9C055EAC229CBA79001B544F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y2XWB859K6;
+				INFOPLIST_FILE = HGTextFieldUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = HG.HGTextFieldUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = HGTextField;
+			};
+			name = Debug;
+		};
+		9C055EAD229CBA79001B544F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y2XWB859K6;
+				INFOPLIST_FILE = HGTextFieldUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = HG.HGTextFieldUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = HGTextField;
+			};
+			name = Release;
+		};
+		9C055EBA229CBA88001B544F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y2XWB859K6;
+				INFOPLIST_FILE = HGTextFieldTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = HG.HGTextFieldTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HGTextField.app/HGTextField";
+			};
+			name = Debug;
+		};
+		9C055EBB229CBA88001B544F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y2XWB859K6;
+				INFOPLIST_FILE = HGTextFieldTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = HG.HGTextFieldTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HGTextField.app/HGTextField";
+			};
+			name = Release;
+		};
 		9CB2DC58228CB4AD00BEBD8F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -484,91 +562,27 @@
 			};
 			name = Release;
 		};
-		9CB2DC5E228CB4AD00BEBD8F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = WHZTV622V5;
-				INFOPLIST_FILE = TextFieldComponentTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = net.ClueApps.TextFieldComponentTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HGTextField.app/HGTextField";
-			};
-			name = Debug;
-		};
-		9CB2DC5F228CB4AD00BEBD8F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = WHZTV622V5;
-				INFOPLIST_FILE = TextFieldComponentTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = net.ClueApps.TextFieldComponentTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HGTextField.app/HGTextField";
-			};
-			name = Release;
-		};
-		9CB2DC61228CB4AD00BEBD8F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = WHZTV622V5;
-				INFOPLIST_FILE = TextFieldComponentUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = net.ClueApps.TextFieldComponentUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = TextFieldComponent;
-			};
-			name = Debug;
-		};
-		9CB2DC62228CB4AD00BEBD8F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = WHZTV622V5;
-				INFOPLIST_FILE = TextFieldComponentUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = net.ClueApps.TextFieldComponentUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = TextFieldComponent;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		9C055EAB229CBA79001B544F /* Build configuration list for PBXNativeTarget "HGTextFieldUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9C055EAC229CBA79001B544F /* Debug */,
+				9C055EAD229CBA79001B544F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9C055EB9229CBA88001B544F /* Build configuration list for PBXNativeTarget "HGTextFieldTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9C055EBA229CBA88001B544F /* Debug */,
+				9C055EBB229CBA88001B544F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		9CB2DC2D228CB4AC00BEBD8F /* Build configuration list for PBXProject "HGTextField" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -583,24 +597,6 @@
 			buildConfigurations = (
 				9CB2DC5B228CB4AD00BEBD8F /* Debug */,
 				9CB2DC5C228CB4AD00BEBD8F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		9CB2DC5D228CB4AD00BEBD8F /* Build configuration list for PBXNativeTarget "HGTextFieldTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				9CB2DC5E228CB4AD00BEBD8F /* Debug */,
-				9CB2DC5F228CB4AD00BEBD8F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		9CB2DC60228CB4AD00BEBD8F /* Build configuration list for PBXNativeTarget "HGTextFieldUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				9CB2DC61228CB4AD00BEBD8F /* Debug */,
-				9CB2DC62228CB4AD00BEBD8F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
