@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HGTextField" customModule="TextFieldComponent" customModuleProvider="target">
             <connections>
+                <outlet property="leadingOfPlaceHolderLabel" destination="sVm-G9-TBZ" id="unF-LU-f7K"/>
                 <outlet property="mainView" destination="iN0-l3-epB" id="OKi-d1-s7C"/>
                 <outlet property="placeHolderLabel" destination="wrw-0X-32K" id="XMs-E5-F7X"/>
                 <outlet property="separatorView" destination="47e-Wc-aW3" id="k3b-lN-c5v"/>
@@ -24,7 +25,7 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="82"/>
+            <rect key="frame" x="0.0" y="0.0" width="414" height="67"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="placeholder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wrw-0X-32K" userLabel="topLabel">
@@ -34,26 +35,22 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NBA-AG-UDC">
-                    <rect key="frame" x="0.0" y="21" width="414" height="40"/>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NBA-AG-UDC">
+                    <rect key="frame" x="0.0" y="21" width="414" height="25"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <color key="tintColor" red="0.039215686270000001" green="0.43529411759999997" blue="0.49803921569999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="40" id="NiK-6k-h0N"/>
-                    </constraints>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="47e-Wc-aW3">
-                    <rect key="frame" x="0.0" y="61" width="414" height="1"/>
+                    <rect key="frame" x="0.0" y="46" width="414" height="1"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="mzf-vm-8HB"/>
                     </constraints>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="warning" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fqi-Ex-ATT" userLabel="downLabel">
-                    <rect key="frame" x="0.0" y="62" width="414" height="20"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="warning" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fqi-Ex-ATT" userLabel="warningLabel">
+                    <rect key="frame" x="0.0" y="47" width="414" height="20"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="IbV-q4-Lfe"/>
@@ -70,7 +67,7 @@
                 <constraint firstItem="fqi-Ex-ATT" firstAttribute="top" secondItem="47e-Wc-aW3" secondAttribute="bottom" id="FU9-Kf-SaU"/>
                 <constraint firstItem="wrw-0X-32K" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="GD6-8y-kpz"/>
                 <constraint firstItem="fqi-Ex-ATT" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="IcD-3R-Ohk"/>
-                <constraint firstAttribute="bottom" secondItem="fqi-Ex-ATT" secondAttribute="bottom" id="Rg5-im-bi6"/>
+                <constraint firstAttribute="bottom" secondItem="fqi-Ex-ATT" secondAttribute="bottom" id="VKc-4u-7Dd"/>
                 <constraint firstItem="47e-Wc-aW3" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="aSp-wT-3pk"/>
                 <constraint firstItem="NBA-AG-UDC" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="dnU-L7-FcK"/>
                 <constraint firstAttribute="trailing" secondItem="wrw-0X-32K" secondAttribute="trailing" id="ebv-oJ-FH9"/>

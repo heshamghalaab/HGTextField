@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let placeHolderFont = UIFont.systemFont(ofSize: 14)
+        let placeHolderFont = UIFont.boldSystemFont(ofSize: 16)
         let textFieldFont = UIFont.systemFont(ofSize: 16)
         let warningFont = UIFont.boldSystemFont(ofSize: 12)
         let activeColor = UIColor(red: 10/255, green: 111/255, blue: 127/255, alpha: 1)
@@ -25,16 +25,16 @@ class ViewController: UIViewController {
         
         
         emailTextField.setup(withSuperView: self.view)
-        emailTextField.setupPlaceHolderView(withPlaceHolderText: "Email", Font: placeHolderFont, activeColor: activeColor, InActiveColor: inActiveColor)
-        emailTextField.setupTextField(text: nil, textFont: textFieldFont, textColor: .darkGray)
-        emailTextField.setupWarningView(warningText: nil, warningFont: warningFont, warningTextColor: warningColor, separatorColor: inActiveColor)
-        emailTextField.fieldType = .email
+        emailTextField.setupPlaceHolderView(withText: "Email", font: placeHolderFont, activeColor: activeColor, InActiveColor: inActiveColor)
+        emailTextField.setupTextField(text: nil, textFont: textFieldFont, textColor: .darkGray, textFieldType: .email)
+        emailTextField.setupWarningView(warningText: nil, warningFont: warningFont, warningColor: warningColor, separatorColor: inActiveColor.withAlphaComponent(0.2))
+        emailTextField.beginHandlingUI()
         
         passwordTextField.setup(withSuperView: self.view)
-        passwordTextField.setupPlaceHolderView(withPlaceHolderText: "Password", Font: placeHolderFont, activeColor: activeColor, InActiveColor: inActiveColor)
-        passwordTextField.setupTextField(text: nil, textFont: textFieldFont, textColor: .darkGray)
-        passwordTextField.setupWarningView(warningText: nil, warningFont: warningFont, warningTextColor: warningColor, separatorColor: inActiveColor)
-        passwordTextField.fieldType = .password
+        passwordTextField.setupPlaceHolderView(withText: "Password", font: placeHolderFont, activeColor: activeColor, InActiveColor: inActiveColor)
+        passwordTextField.setupTextField(text: nil, textFont: textFieldFont, textColor: .darkGray, textFieldType: .password)
+        passwordTextField.setupWarningView(warningText: nil, warningFont: warningFont, warningColor: warningColor, separatorColor: inActiveColor.withAlphaComponent(0.2))
+        passwordTextField.beginHandlingUI()
     }
 
     @IBAction func doneButtonTapped(_ sender: UIButton) {
@@ -43,6 +43,9 @@ class ViewController: UIViewController {
         let isPasswordValidate = passwordTextField.isValidate()
         print("isEmailValidate: \(isEmailValidate)")
         print("isPasswordValidate: \(isPasswordValidate)")
+        
+        print("Email is: \(emailTextField.getText() ?? "not set yet")")
+        print("Password is: \(passwordTextField.getText() ?? "not set yet")")
     }
     
     @IBAction func onTapCancel(_ sender: UIButton) {
