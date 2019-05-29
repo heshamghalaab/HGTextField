@@ -139,15 +139,15 @@ class HGTextField: UIView {
     
     func setText(with text: String?){
         self.fieldPackage.text = text
+        textField.text = text
         self.handlingSeparatorView()
         
-        guard let text = text else {
+        guard let _ = text else {
             self.inActivePlaceHolderAnimation()
             return
         }
         
         self.activePlaceHolderAnimation()
-        textField.text = text
     }
     
     func getText() -> String?{
@@ -156,10 +156,11 @@ class HGTextField: UIView {
     
     func setWarningText(with warningText: String?){
         self.warningPackage.warningText = warningText
+        warningLabel.text = warningText
+        handlingSeparatorView()
         
-        guard let warningText = warningText else {
+        guard let _ = warningText else {
             hasWarning = false
-            handlingSeparatorView()
             warningHeight.constant = 0
             layOutSuperView()
             return
@@ -167,9 +168,7 @@ class HGTextField: UIView {
         
         let width = warningLabel.frame.width
         hasWarning = true
-        handlingSeparatorView()
-        warningLabel.text = warningText
-        warningHeight.constant = height(withWidth: width, font: warningLabel.font, value: warningText)
+        warningHeight.constant = height(withWidth: width, font: warningLabel.font)
         layOutSuperView()
     }
     
@@ -190,9 +189,7 @@ class HGTextField: UIView {
     }
     
     private func activePlaceHolderAnimation(){
-        let placeHolderHight = height(withWidth: placeHolderLabel.frame.width,
-                                      font: placeHolderPackage.font,
-                                      value: placeHolderPackage.text)
+        let placeHolderHight = height(withWidth: placeHolderLabel.frame.width, font: placeHolderPackage.font)
         topOfTextField.constant = placeHolderHight + padding
         topOfPlaceHolderLabel.constant = 0
         handleStatus(with: .active)
@@ -213,12 +210,8 @@ class HGTextField: UIView {
     }
     
     private func inActivePlaceHolderAnimation(){
-        let textHight = height(withWidth: textField.frame.width,
-                               font: fieldPackage.textFont,
-                               value: fieldPackage.text ?? "")
-        let placeHolderHight = height(withWidth: placeHolderLabel.frame.width,
-                                      font: placeHolderPackage.font,
-                                      value: placeHolderPackage.text)
+        let textHight = height(withWidth: textField.frame.width, font: fieldPackage.textFont)
+        let placeHolderHight = height(withWidth: placeHolderLabel.frame.width, font: placeHolderPackage.font)
         topOfTextField.constant =  padding
         topOfPlaceHolderLabel.constant = (textHight / 2) - (placeHolderHight / 2)
         handleStatus(with: .inActive)
@@ -260,7 +253,7 @@ class HGTextField: UIView {
         })
     }
     
-    private func height(withWidth width: CGFloat, font: UIFont, value: String) -> CGFloat {
+    private func height(withWidth width: CGFloat, font: UIFont, value: String = "Any value") -> CGFloat {
         let constraintRect = CGSize(width: width, height: .greatestFiniteMagnitude)
         let boundingBox = value.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
         
